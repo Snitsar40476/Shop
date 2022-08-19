@@ -1,0 +1,177 @@
+@import 'warning__window.css';
+
+.header {
+    position: relative;
+}
+.header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 52px 60px 20px 205px;
+    color: black;
+}
+.header__content-company-name {
+    font-family: Inter, serif;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.header__content-nav {
+    display: flex;
+    align-items: center;
+}
+.header__content-nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #323642;
+}
+.header__content-nav-link:not(:first-child) { margin-left: 20px; }
+.header__content-nav-link_active { position: relative; }
+.header__content-nav-link_active::before {
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #4CB649;
+}
+.header__content-nav-link_icon {
+    display: flex;
+    align-items: center;
+    transition: 0.2s linear;
+}
+.header__content-nav-link_icon::after {
+    content: '';
+    margin-left: 10px;
+    margin-top: -3px;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #323642 transparent transparent transparent;
+    transition: 0.2s linear;
+}
+.header__content-nav-link_icon:hover::after {
+    transform: rotate(180deg);
+    border-color: #4CB649 transparent transparent transparent;
+}
+.header__content-login-register {
+    display: flex;
+    align-items: center;
+}
+.header__content-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 90px;
+    height: 40px;
+    border: 1px solid #4CB649;
+    color: #4CB649;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    border-radius: 30px;
+}
+.header__content-register-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 40px;
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    border-radius: 30px;
+    background: linear-gradient(0deg, #4CB649 0%, #5DDF5A 100%);
+    transition: all 150ms ease-in-out;
+}
+.header__content-login-button::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: linear-gradient(0deg, #4CB649 0%, #5DDF5A 100%);
+    z-index: -1;
+    transition: width 150ms ease-in-out;
+}
+.header__content-login-button:hover:after { width: 110%; }
+.header__content-login-button:hover { color: white; }
+.header__content-register-button:hover {
+    box-shadow: 0 0 7px 0 #4CB649 inset, 0 0 7px 4px #5DDF5A;
+    color: #4CB649;
+    background: none;
+}
+.header__content__nav-wrapper-burger { 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 16px;
+    cursor: pointer; 
+}
+.header__content__nav-burger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: #22252E;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.header__content__nav-burger::before {
+    position: absolute;
+    content: '';
+    top: -6px;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: #22252E;
+    border-radius: 3px;
+}
+.header__content__nav-burger::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: -6px;
+    width: 24px;
+    height: 2px;
+    background-color: #22252E;
+    border-radius: 3px;
+}
+
+@media (max-width: 1100px) {
+    .header__content { padding-left: 60px; }
+}
+@media (max-width: 992px) {
+    .header__content { 
+        padding-left: 30px;
+        padding-right: 30px; 
+    }
+}
+@media (max-width: 900px) {
+    .header__content__nav-wrapper-burger { display: flex; }
+    .header__content-nav { display: none; }
+    .header__content {
+        padding-top: 50px;
+    }
+}
+@media (max-width: 740px) {
+    .header__content-register-button { width: 126px; }
+}
+@media (max-width: 540px) {
+    .header__content-login-button { display: none; }
+    .header__content-register-button{ margin: 0; }
+    .header__content {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
